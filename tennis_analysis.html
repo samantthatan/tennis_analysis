@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Surface-Based Serve Efficiency Grouped Bar Chart</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .chart-container {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        /* Bar Colors and Hover Effects */
+        .bar-ace { fill: #1f77b4; } /* Blue for Ace Rate */
+        .bar-df { fill: #ff7f0e; } /* Orange for Double Fault Rate */
+        .bar:hover { opacity: 0.8; }
+        
+        /* Axes Styling */
+        .axis text { font-size: 10px; }
+        .axis path, .axis line { fill: none; stroke: #000; shape-rendering: crispEdges; }
+        .chart-title { text-align: center; font-size: 1.2em; font-weight: bold; margin-bottom: 10px; }
+        
+        /* Legend Styling */
+        .legend-item { display: inline-block; margin-right: 15px; font-size: 12px; }
+        .legend-color { width: 10px; height: 10px; display: inline-block; margin-right: 5px; border: 1px solid #000; }
+
+        /* Tooltip Styling */
+        #tooltip {
+            position: absolute;
+            text-align: center;
+            padding: 8px;
+            font: 12px sans-serif;
+            background: lightsteelblue;
+            border: 0px;
+            border-radius: 4px;
+            pointer-events: none; /* Important for tooltips to not block mouse events */
+            opacity: 0; /* Starts hidden */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="tooltip"></div>
+
+    <div class="chart-container">
+        <div class="chart-title">Average Serve Rates (Ace & Double Fault) by Surface (2000-2009)</div>
+        <div id="serve-rates-grouped-graph"></div>
+        <div style="text-align:center; margin-top: 10px;">
+            <div class="legend-item"><span class="legend-color" style="background-color: #1f77b4;"></span>Ace Rate</div>
+            <div class="legend-item"><span class="legend-color" style="background-color: #ff7f0e;"></span>Double Fault Rate</div>
+        </div>
+    </div>
+
+    <script>
+        // --- Embedded Data from Python Analysis ---
+        const serveRatesGroupedData = [
+            {"surface": "Carpet", "metric": "Ace Rate", "rate": 0.09749571304495845},
+            {"surface": "Clay", "metric": "Ace Rate", "rate": 0.05133973941981995},
+            {"surface": "Grass", "metric": "Ace Rate", "rate": 0.09083029282179181},
+            {"surface": "Hard", "metric": "Ace Rate", "rate": 0.08290569521299156},
+            {"surface": "Carpet", "metric": "Double Fault Rate", "rate": 0.03790385048564089},
+            {"surface": "Clay", "metric": "Double Fault Rate", "rate": 0.03681162998243966},
+            {"surface": "Grass", "metric": "Double Fault Rate", "rate": 0.04440856404139636},
+            {"surface": "Hard", "metric": "Double Fault Rate", "rate": 0.040150726688518774}
+        ];
+
+        // --- D3.js Visualization Settings ---
+        const MARGIN = { top: 20, right: 30, bottom: 50, left: 60 };
+        const WIDTH = 500 - MARGIN.left - MARGIN.right; 
+        const HEIGHT = 350 - MARGIN.top - MARGIN.bottom;
+        
+        // Color scale for the two metrics
+        const colorScale = d3.scaleOrdinal()
+            .domain(["Ace Rate", "Double Fault Rate"])
+            .range(["#1f77b4", "#ff7f0e"]);
+            
+        // Formatter for percentage display in tooltips and axes
+        const formatPercent = d3.format(".2%");
+
+        // --- D3.js Grouped Bar Chart Function ---
+        function createGroupedBarChart(data, selector, xKey, subXKey, yKey, xLabel, yLabel, yFormat, colorScale) {
+            
+            const svg = d3.select(selector)
+                .append("svg")
+                .attr("width", WIDTH + MARGIN.left + MARGIN.right)
+                .attr("height", HEIGHT + MARGIN.top + MARGIN.bottom)
+                .append("g")
+                .attr("transform", `translate(${MARGIN.left},${MARGIN.top})`);
+
+            // 1. Main X-axis scale (Band Scale for Surfaces)
+            const groups = data.map(d => d[xKey]).filter((v, i, a) => a.indexOf(v) === i);
+            const xScale = d3.scaleBand()
+                .domain(groups)
+                .range([0, WIDTH])
+                .padding([0.2]);
+            
+            // 2. Subgroup X-axis scale (Band Scale for Ace Rate / DF Rate within each surface)
+            const subgroups = data.map(d => d[subXKey]).filter((v, i, a) => a.indexOf(v) === i).sort();
+            const xSubgroup = d3.scaleBand()
+                .domain(subgroups)
+                .range([0, xScale.bandwidth()])
+                .padding([0.05]);
+
+            // 3. Y scale (Linear Scale for continuous data)
+            const yMax = d3.max(data, d => d[yKey]) * 1.05;
+
+            const yScale = d3.scaleLinear()
+                .domain([0, yMax])
+                .range([HEIGHT, 0]);
+
+            // Select the tooltip element
+            const tooltip = d3.select("#tooltip");
+
+            // Define mouse events for interactivity
+            const mouseover = function(event, d) {
+                tooltip.style("opacity", 1)
+                d3.select(this).style("opacity", 0.8)
+            }
+
+            const mousemove = function(event, d) {
+                tooltip
+                    .html(`<strong>Surface:</strong> ${d[xKey]}<br><strong>${d[subXKey]}:</strong> ${formatPercent(d[yKey])}`)
+                    .style("left", (event.pageX + 10) + "px")
+                    .style("top", (event.pageY - 28) + "px")
+            }
+
+            const mouseleave = function(event, d) {
+                tooltip.style("opacity", 0)
+                d3.select(this).style("opacity", 1)
+            }
+
+            // 4. Draw Bars
+            svg.append("g")
+                .selectAll("g")
+                .data(d3.group(data, d => d[xKey])) // Group data by Surface
+                .join("g")
+                    .attr("transform", d => `translate(${xScale(d[0])},0)`)
+                    .selectAll("rect")
+                    .data(d => d[1])
+                    .join("rect")
+                        // Initial state for animation (height 0)
+                        .attr("x", d => xSubgroup(d[subXKey]))
+                        .attr("y", HEIGHT)
+                        .attr("width", xSubgroup.bandwidth())
+                        .attr("height", 0)
+                        // Interaction handlers
+                        .on("mouseover", mouseover)
+                        .on("mousemove", mousemove)
+                        .on("mouseleave", mouseleave)
+                        // Final properties
+                        .attr("fill", d => colorScale(d[subXKey]))
+                        .attr("class", d => `bar bar-${d[subXKey].split(' ')[0].toLowerCase()}`)
+                    // Animation Transition: Grow up
+                    .transition()
+                    .duration(800)
+                    .delay((d, i) => i * 100) // Staggered delay for subgroups
+                        .attr("y", d => yScale(d[yKey]))
+                        .attr("height", d => HEIGHT - yScale(d[yKey]));
+
+            // 5. Draw X-axis (Surfaces)
+            svg.append("g")
+                .attr("class", "axis x-axis")
+                .attr("transform", `translate(0,${HEIGHT})`)
+                .call(d3.axisBottom(xScale));
+
+            // X-axis Label
+            svg.append("text")
+                .attr("class", "x label")
+                .attr("text-anchor", "end")
+                .attr("x", WIDTH)
+                .attr("y", HEIGHT + 40)
+                .text(xLabel);
+
+            // 6. Draw Y-axis (Rates)
+            svg.append("g")
+                .attr("class", "axis y-axis")
+                .call(d3.axisLeft(yScale).tickFormat(d3.format(yFormat)));
+
+            // Y-axis Label
+            svg.append("text")
+                .attr("class", "y label")
+                .attr("text-anchor", "end")
+                .attr("x", -MARGIN.top)
+                .attr("y", -MARGIN.left + 20)
+                .attr("transform", "rotate(-90)")
+                .text(yLabel);
+        }
+        
+        // --- Render Chart ---
+        createGroupedBarChart(
+            serveRatesGroupedData,
+            "#serve-rates-grouped-graph",
+            "surface",
+            "metric",
+            "rate",
+            "Surface",
+            "Average Rate (%)",
+            ".1%",
+            colorScale
+        );
+    </script>
+</body>
+</html>
