@@ -1,0 +1,148 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: http://127.0.0.1:5500/tennis_analysis.html
+Subject: Surface-Based Serve Efficiency Grouped Bar Chart
+Date: Tue, 25 Nov 2025 23:18:20 -0500
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--B9c2UmGlLdwtatOvblRrEjnjiIVjc9jQEvoDnzQnn5----"
+
+
+------MultipartBoundary--B9c2UmGlLdwtatOvblRrEjnjiIVjc9jQEvoDnzQnn5----
+Content-Type: text/html
+Content-ID: <frame-A7F30701E5EF07370CFFA4D4BA9736D6@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://127.0.0.1:5500/tennis_analysis.html
+
+<!DOCTYPE html><html lang=3D"en"><head><meta http-equiv=3D"Content-Type" co=
+ntent=3D"text/html; charset=3DUTF-8"><link rel=3D"stylesheet" type=3D"text/=
+css" href=3D"cid:css-a1c60915-9a9b-4728-b353-6b7d150031e8@mhtml.blink" />
+   =20
+    <title>Surface-Based Serve Efficiency Grouped Bar Chart</title>
+   =20
+   =20
+</head>
+<body>
+
+    <div id=3D"tooltip"></div>
+
+    <div class=3D"chart-container">
+        <div class=3D"chart-title">Average Serve Rates (Ace &amp; Double Fa=
+ult) by Surface (2000-2009)</div>
+        <div id=3D"serve-rates-grouped-graph"><svg width=3D"500" height=3D"=
+350"><g transform=3D"translate(60,20)"><g><g transform=3D"translate(19.5238=
+0952380952,0)"><rect x=3D"1.904761904761905" y=3D"13.333333333333348" width=
+=3D"36.1904761904762" height=3D"266.66666666666663" fill=3D"#1f77b4" class=
+=3D"bar bar-ace"></rect><rect x=3D"40.00000000000001" y=3D"176.326790715643=
+23" width=3D"36.1904761904762" height=3D"103.67320928435677" fill=3D"#ff7f0=
+e" class=3D"bar bar-double"></rect></g><g transform=3D"translate(117.142857=
+14285714,0)"><rect x=3D"1.904761904761905" y=3D"139.57744447383578" width=
+=3D"36.1904761904762" height=3D"140.42255552616422" fill=3D"#1f77b4" class=
+=3D"bar bar-ace"></rect><rect x=3D"40.00000000000001" y=3D"179.314191820339=
+52" width=3D"36.1904761904762" height=3D"100.68580817966048" fill=3D"#ff7f0=
+e" class=3D"bar bar-double"></rect></g><g transform=3D"translate(214.761904=
+76190476,0)"><rect x=3D"1.904761904761905" y=3D"31.56434408582458" width=3D=
+"36.1904761904762" height=3D"248.4356559141754" fill=3D"#1f77b4" class=3D"b=
+ar bar-ace"></rect><rect x=3D"40.00000000000001" y=3D"158.53533889319317" w=
+idth=3D"36.1904761904762" height=3D"121.46466110680683" fill=3D"#ff7f0e" cl=
+ass=3D"bar bar-double"></rect></g><g transform=3D"translate(312.38095238095=
+24,0)"><rect x=3D"1.904761904761905" y=3D"53.23941022990133" width=3D"36.19=
+04761904762" height=3D"226.76058977009868" fill=3D"#1f77b4" class=3D"bar ba=
+r-ace"></rect><rect x=3D"40.00000000000001" y=3D"170.18121806715345" width=
+=3D"36.1904761904762" height=3D"109.81878193284655" fill=3D"#ff7f0e" class=
+=3D"bar bar-double"></rect></g></g><g class=3D"axis x-axis" transform=3D"tr=
+anslate(0,280)" fill=3D"none" font-size=3D"10" font-family=3D"sans-serif" t=
+ext-anchor=3D"middle"><path class=3D"domain" stroke=3D"currentColor" d=3D"M=
+0,6V0H410V6"></path><g class=3D"tick" opacity=3D"1" transform=3D"translate(=
+58.57142857142857,0)"><line stroke=3D"currentColor" y2=3D"6"></line><text f=
+ill=3D"currentColor" y=3D"9" dy=3D"0.71em">Carpet</text></g><g class=3D"tic=
+k" opacity=3D"1" transform=3D"translate(156.1904761904762,0)"><line stroke=
+=3D"currentColor" y2=3D"6"></line><text fill=3D"currentColor" y=3D"9" dy=3D=
+"0.71em">Clay</text></g><g class=3D"tick" opacity=3D"1" transform=3D"transl=
+ate(253.8095238095238,0)"><line stroke=3D"currentColor" y2=3D"6"></line><te=
+xt fill=3D"currentColor" y=3D"9" dy=3D"0.71em">Grass</text></g><g class=3D"=
+tick" opacity=3D"1" transform=3D"translate(351.42857142857144,0)"><line str=
+oke=3D"currentColor" y2=3D"6"></line><text fill=3D"currentColor" y=3D"9" dy=
+=3D"0.71em">Hard</text></g></g><text class=3D"x label" text-anchor=3D"end" =
+x=3D"410" y=3D"320">Surface</text><g class=3D"axis y-axis" fill=3D"none" fo=
+nt-size=3D"10" font-family=3D"sans-serif" text-anchor=3D"end"><path class=
+=3D"domain" stroke=3D"currentColor" d=3D"M-6,280H0V0H-6"></path><g class=3D=
+"tick" opacity=3D"1" transform=3D"translate(0,280)"><line stroke=3D"current=
+Color" x2=3D"-6"></line><text fill=3D"currentColor" x=3D"-9" dy=3D"0.32em">=
+0.0%</text></g><g class=3D"tick" opacity=3D"1" transform=3D"translate(0,252=
+.64837003205486)"><line stroke=3D"currentColor" x2=3D"-6"></line><text fill=
+=3D"currentColor" x=3D"-9" dy=3D"0.32em">1.0%</text></g><g class=3D"tick" o=
+pacity=3D"1" transform=3D"translate(0,225.29674006410968)"><line stroke=3D"=
+currentColor" x2=3D"-6"></line><text fill=3D"currentColor" x=3D"-9" dy=3D"0=
+.32em">2.0%</text></g><g class=3D"tick" opacity=3D"1" transform=3D"translat=
+e(0,197.94511009616457)"><line stroke=3D"currentColor" x2=3D"-6"></line><te=
+xt fill=3D"currentColor" x=3D"-9" dy=3D"0.32em">3.0%</text></g><g class=3D"=
+tick" opacity=3D"1" transform=3D"translate(0,170.5934801282194)"><line stro=
+ke=3D"currentColor" x2=3D"-6"></line><text fill=3D"currentColor" x=3D"-9" d=
+y=3D"0.32em">4.0%</text></g><g class=3D"tick" opacity=3D"1" transform=3D"tr=
+anslate(0,143.24185016027425)"><line stroke=3D"currentColor" x2=3D"-6"></li=
+ne><text fill=3D"currentColor" x=3D"-9" dy=3D"0.32em">5.0%</text></g><g cla=
+ss=3D"tick" opacity=3D"1" transform=3D"translate(0,115.8902201923291)"><lin=
+e stroke=3D"currentColor" x2=3D"-6"></line><text fill=3D"currentColor" x=3D=
+"-9" dy=3D"0.32em">6.0%</text></g><g class=3D"tick" opacity=3D"1" transform=
+=3D"translate(0,88.53859022438394)"><line stroke=3D"currentColor" x2=3D"-6"=
+></line><text fill=3D"currentColor" x=3D"-9" dy=3D"0.32em">7.0%</text></g><=
+g class=3D"tick" opacity=3D"1" transform=3D"translate(0,61.18696025643881)"=
+><line stroke=3D"currentColor" x2=3D"-6"></line><text fill=3D"currentColor"=
+ x=3D"-9" dy=3D"0.32em">8.0%</text></g><g class=3D"tick" opacity=3D"1" tran=
+sform=3D"translate(0,33.83533028849365)"><line stroke=3D"currentColor" x2=
+=3D"-6"></line><text fill=3D"currentColor" x=3D"-9" dy=3D"0.32em">9.0%</tex=
+t></g><g class=3D"tick" opacity=3D"1" transform=3D"translate(0,6.4837003205=
+48493)"><line stroke=3D"currentColor" x2=3D"-6"></line><text fill=3D"curren=
+tColor" x=3D"-9" dy=3D"0.32em">10.0%</text></g></g><text class=3D"y label" =
+text-anchor=3D"end" x=3D"-20" y=3D"-40" transform=3D"rotate(-90)">Average R=
+ate (%)</text></g></svg></div>
+        <div style=3D"text-align:center; margin-top: 10px;">
+            <div class=3D"legend-item"><span class=3D"legend-color" style=
+=3D"background-color: #1f77b4;"></span>Ace Rate</div>
+            <div class=3D"legend-item"><span class=3D"legend-color" style=
+=3D"background-color: #ff7f0e;"></span>Double Fault Rate</div>
+        </div>
+    </div>
+
+   =20
+<!-- Code injected by live-server -->
+
+
+</body></html>
+------MultipartBoundary--B9c2UmGlLdwtatOvblRrEjnjiIVjc9jQEvoDnzQnn5----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-a1c60915-9a9b-4728-b353-6b7d150031e8@mhtml.blink
+
+@charset "utf-8";
+
+body { font-family: Arial, sans-serif; }
+
+.chart-container { margin: 20px; padding: 20px; border: 1px solid rgb(204, =
+204, 204); border-radius: 5px; display: inline-block; }
+
+.bar-ace { fill: rgb(31, 119, 180); }
+
+.bar-df { fill: rgb(255, 127, 14); }
+
+.bar:hover { opacity: 0.8; }
+
+.axis text { font-size: 10px; }
+
+.axis path, .axis line { fill: none; stroke: rgb(0, 0, 0); shape-rendering:=
+ crispedges; }
+
+.chart-title { text-align: center; font-size: 1.2em; font-weight: bold; mar=
+gin-bottom: 10px; }
+
+.legend-item { display: inline-block; margin-right: 15px; font-size: 12px; =
+}
+
+.legend-color { width: 10px; height: 10px; display: inline-block; margin-ri=
+ght: 5px; border: 1px solid rgb(0, 0, 0); }
+
+#tooltip { position: absolute; text-align: center; padding: 8px; font: 12px=
+ sans-serif; background: lightsteelblue; border: 0px; border-radius: 4px; p=
+ointer-events: none; opacity: 0; }
+------MultipartBoundary--B9c2UmGlLdwtatOvblRrEjnjiIVjc9jQEvoDnzQnn5------
